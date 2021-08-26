@@ -5,8 +5,8 @@ html {
 }
 
 body {
-    background-color: #327A10;
-    color: #FFF;
+    background-color: #327a10;
+    color: #fff;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     font-size: 8vw;
     height: 75vw;
@@ -21,14 +21,12 @@ body h2 {
 }
 
 @media (min-aspect-ratio: 4/3) {
-
     body {
         font-size: 10.666vh;
         height: 100%;
         margin: 0 auto;
         width: 133vh;
     }
-
 }
 
 a {
@@ -65,7 +63,7 @@ li {
 }
 
 .polaroid {
-    background-color: #FFF;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0 auto;
@@ -74,11 +72,11 @@ li {
 }
 
 .polaroid:not(:last-of-type) {
-    padding-bottom: 65%;
+    padding-bottom: 63.75%;
 }
 
 .polaroid:not(:first-of-type) {
-    margin: -71% auto 0;
+    margin: -68.75% auto 0;
 }
 
 .polaroid:first-child {
@@ -98,6 +96,7 @@ li {
 }
 
 .polaroid img {
+    display: block;
     width: 100%;
 }
 
