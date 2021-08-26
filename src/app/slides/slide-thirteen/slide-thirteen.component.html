@@ -1,0 +1,8 @@
+<h2>Collect reports</h2>
+<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const observer = new ReportingObserver((reportList) =&gt; {{ '{' }}
+    // send the reportList to your server
+}, {{ '{' }} buffered: true });
+
+observer.observe();
+<!-- htmlmin:ignore --></rws-prism>
+<p>only works in Chromium browsers</p>

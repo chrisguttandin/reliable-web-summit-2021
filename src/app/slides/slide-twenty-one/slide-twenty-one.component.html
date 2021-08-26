@@ -1,0 +1,7 @@
+<h2>Keep the page alive</h2>
+<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const wakeLockSentinel = await navigator
+    .wakeLock
+    .request('screen');
+
+wakeLockSentinel.release();<!-- htmlmin:ignore --></rws-prism>
+<p>only works in Chromium browsers</p>

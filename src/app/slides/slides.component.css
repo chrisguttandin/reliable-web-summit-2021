@@ -1,0 +1,19 @@
+main {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0;
+    padding: 3.9vw;
+    width: 100%;
+    /* border: 1px solid #F00;
+    max-height: 360px;
+    max-width: 640px;
+    margin: 0 auto; */
+}
+
+@media (min-aspect-ratio: 4/3) {
+
+    main {
+        padding: 5.2vh;
+    }
+
+}

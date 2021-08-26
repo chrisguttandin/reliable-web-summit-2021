@@ -1,0 +1,8 @@
+<h2>Track rejections</h2>
+<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->import {{ '{' }} unhandledRejection } from 'subscribable-things';
+
+unhandledRejection(
+    100 // wait 100ms before calling the rejection unhandled
+)((reason) =&gt; {{ '{' }}
+    /* send the reason to your server */
+});<!-- htmlmin:ignore --></rws-prism>
