@@ -1,0 +1,84 @@
+{
+  "configVersion": 1,
+  "timestamp": 1630002797778,
+  "index": "/reliable-web-summit-2021/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/reliable-web-summit-2021/scripts/968.db4dc819d78bf7076e61.js",
+        "/reliable-web-summit-2021/index.html",
+        "/reliable-web-summit-2021/scripts/main.4cb2dd7b0006365cc7ab.js",
+        "/reliable-web-summit-2021/scripts/polyfills.63f08b66149b073631b3.js",
+        "/reliable-web-summit-2021/scripts/scripts.1dade9dd63b52cc23955.js",
+        "/reliable-web-summit-2021/styles/styles.cab426f7837489d0fc8d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/reliable-web-summit-2021/assets/cloth.jpg",
+        "/reliable-web-summit-2021/assets/run.jpg",
+        "/reliable-web-summit-2021/assets/shoe.jpg",
+        "/reliable-web-summit-2021/assets/timer.jpg"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "fonts",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css",
+        "https:\\/\\/fonts\\.gstatic\\.com"
+      ]
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/reliable-web-summit-2021/scripts/968.db4dc819d78bf7076e61.js": "f398f07958e3f32c1437c9f164386cfcc599819e",
+    "/reliable-web-summit-2021/assets/cloth.jpg": "d564e94375001e3b2dad15410326cccbcff3ac8c",
+    "/reliable-web-summit-2021/assets/run.jpg": "071b584627ab666aaa09d57615b18c034f525a35",
+    "/reliable-web-summit-2021/assets/shoe.jpg": "c48940b5c19079f44daedf0a974379affc9de825",
+    "/reliable-web-summit-2021/assets/timer.jpg": "58d2e89456a716313e2ce2c299a3cf37a5381ba9",
+    "/reliable-web-summit-2021/index.html": "6f6463f26b2ecf37506e021033a30631f2f2f5f2",
+    "/reliable-web-summit-2021/scripts/main.4cb2dd7b0006365cc7ab.js": "505b9bd190c3e81a72b53d94c387a4d818c292ec",
+    "/reliable-web-summit-2021/scripts/polyfills.63f08b66149b073631b3.js": "74ca7722ab5fbdc4dcf1d3ec6b1243d66ee9825e",
+    "/reliable-web-summit-2021/scripts/scripts.1dade9dd63b52cc23955.js": "e54fa2bc91ef05b31657e00f51a7e46771e2a900",
+    "/reliable-web-summit-2021/styles/styles.cab426f7837489d0fc8d.css": "2b762f7a8bf9c806b43efd0983262e99fe5f47e7"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
