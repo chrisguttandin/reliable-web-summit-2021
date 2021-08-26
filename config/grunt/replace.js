@@ -1,6 +1,7 @@
 const cspBuilder = require('content-security-policy-builder');
 const cspProductionConfig = require('../csp/production');
 const crypto = require('crypto');
+const { dirname, relative } = require('path');
 const fs = require('fs');
 
 // eslint-disable-next-line padding-line-between-statements
@@ -32,6 +33,63 @@ const replaceHashInMatch = (grunt, match, prefix, index) => {
 
 module.exports = (grunt) => {
     return {
+        'assets': {
+            files: {
+                './': [
+                    'build/reliable-web-summit-2021/index.html',
+                    'build/reliable-web-summit-2021/**/*.css',
+                    'build/reliable-web-summit-2021/**/*.js'
+                ]
+            },
+            options: {
+                patterns: [
+                    {
+                        match: /(?<filename>[\da-z-]+)\.(?<hash>[\da-f]{20})\.(?<extension>ico|jpg|png)/g,
+                        replacement: (_1, filename, hash, extension, _2, _3, _4, source) => {
+                            const cwd = 'build/reliable-web-summit-2021';
+
+                            if (grunt.file.exists(`${cwd}/assets/${filename}.${extension}`)) {
+                                grunt.file.delete(`${cwd}/assets/${filename}.${extension}`);
+                            }
+
+                            if (source.endsWith('.css')) {
+                                return relative(dirname(source), `${cwd}/assets/${filename}.${hash}.${extension}`);
+                            }
+
+                            return `assets/${filename}.${hash}.${extension}`;
+                        }
+                    },
+                    {
+                        match: /assets\/(?<filename>[\da-z-]+)\.(?<extension>ico|jpg|png)/g,
+                        replacement: (_1, filename, extension, _2, _3, _4, source) => {
+                            const cwd = 'build/reliable-web-summit-2021';
+
+                            if (grunt.file.exists(`${cwd}/assets/${filename}.${extension}`)) {
+                                const hash = computeHashOfFile(`${cwd}/assets/${filename}.${extension}`, 'sha1', 'hex').slice(0, 20);
+
+                                grunt.file.copy(`${cwd}/assets/${filename}.${extension}`, `${cwd}/assets/${filename}.${hash}.${extension}`);
+                                grunt.file.delete(`${cwd}/assets/${filename}.${extension}`);
+
+                                if (source.endsWith('.css')) {
+                                    return relative(dirname(source), `${cwd}/assets/${filename}.${hash}.${extension}`);
+                                }
+
+                                return `assets/${filename}.${hash}.${extension}`;
+                            }
+
+                            if (source.endsWith('.css')) {
+                                return relative(
+                                    dirname(source),
+                                    `${cwd}/${grunt.file.expand({ cwd, ext: extension }, `assets/${filename}.*`)[0]}`
+                                );
+                            }
+
+                            return `${grunt.file.expand({ cwd, ext: extension }, `assets/${filename}.*`)[0]}`;
+                        }
+                    }
+                ]
+            }
+        },
         'bundle': {
             files: {
                 './': ['build/reliable-web-summit-2021/main*.js']
@@ -198,6 +256,30 @@ module.exports = (grunt) => {
                 ]
             }
         },
+        'references': {
+            files: {
+                './': ['build/reliable-web-summit-2021/**/index.html']
+            },
+            options: {
+                patterns: [
+                    {
+                        match: /(?<filename>[\da-z-]+)\.(?<extension>ico|jpg|png)/g,
+                        replacement: (match, filename, extension) => {
+                            const pathOfHashedFile = grunt.file.expand(
+                                { cwd: 'build/reliable-web-summit-2021', ext: extension },
+                                `assets/${filename}.*`
+                            )[0];
+
+                            if (pathOfHashedFile === undefined) {
+                                return match;
+                            }
+
+                            return pathOfHashedFile;
+                        }
+                    }
+                ]
+            }
+        },
         'runtime': {
             files: {
                 './': ['build/reliable-web-summit-2021/index.html']
@@ -211,10 +293,7 @@ module.exports = (grunt) => {
                                 return `<script>${fs.readFileSync(`build/reliable-web-summit-2021/${filename}`)}</script>`; // eslint-disable-line node/no-sync
                             }
 
-                            // eslint-disable-next-line node/no-sync
-                            return `<script${moduleAttribute}>${fs.readFileSync(
-                                `build/reliable-web-summit-2021/${filename}`
-                            )}</script>`;
+                            return `<script${moduleAttribute}>${fs.readFileSync(`build/reliable-web-summit-2021/${filename}`)}</script>`; // eslint-disable-line node/no-sync
                         }
                     }
                 ]
@@ -230,11 +309,7 @@ module.exports = (grunt) => {
                         match: /<script\ssrc="(?<filename>[\da-z-]+\.[\da-z]+\.js)"\scrossorigin="anonymous"(?<moduleAttribute>\s(?:nomodule|type="module"))?\sdefer(?:="")?\sintegrity="(?<initialHash>sha384-[\d+/A-Za-z]+=*)"><\/script>/g,
                         replacement: (match, filename, moduleAttribute, initialHash) => {
                             const updatedHash = /main(?:-es(?:2015|5))?\.[\da-z]+\.js/.test(filename)
-                                ? `sha384-${computeHashOfFile(
-                                      `build/reliable-web-summit-2021/scripts/${filename}`,
-                                      'sha384',
-                                      'base64'
-                                  )}`
+                                ? `sha384-${computeHashOfFile(`build/reliable-web-summit-2021/scripts/${filename}`, 'sha384', 'base64')}`
                                 : initialHash;
 
                             if (moduleAttribute === undefined) {

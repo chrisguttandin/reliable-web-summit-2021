@@ -9,6 +9,16 @@ module.exports = {
             }
         ]
     },
+    assets: {
+        files: [
+            {
+                cwd: 'build/reliable-web-summit-2021/',
+                dest: 'build/reliable-web-summit-2021/assets/',
+                expand: true,
+                src: ['*.ico', '*.jpg', '*.png']
+            }
+        ]
+    },
     scripts: {
         files: [
             {
