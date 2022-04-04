@@ -111,22 +111,22 @@ li {
 }
 
 .polaroid div.cloth {
-    background-image: url('../assets/cloth.jpg');
+    background-image: url('../images/cloth.jpg');
     background-size: cover;
 }
 
 .polaroid div.run {
-    background-image: url('../assets/run.jpg');
+    background-image: url('../images/run.jpg');
     background-size: cover;
 }
 
 .polaroid div.shoe {
-    background-image: url('../assets/shoe.jpg');
+    background-image: url('../images/shoe.jpg');
     background-size: cover;
 }
 
 .polaroid div.timer {
-    background-image: url('../assets/timer.jpg');
+    background-image: url('../images/timer.jpg');
     background-size: cover;
 }
 
