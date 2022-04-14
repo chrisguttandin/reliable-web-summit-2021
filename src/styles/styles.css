@@ -97,6 +97,7 @@ li {
 
 .polaroid div {
     display: block;
+    overflow: hidden;
     padding: 0 0 75%;
     width: 100%;
 }
