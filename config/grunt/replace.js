@@ -60,19 +60,6 @@ module.exports = (grunt) => {
                 ]
             }
         },
-        'bundle': {
-            files: {
-                './': ['build/reliable-web-summit-2021/main*.js']
-            },
-            options: {
-                patterns: [
-                    {
-                        match: /"\/ngsw-worker\.js"/g,
-                        replacement: '"/reliable-web-summit-2021/ngsw-worker.js"'
-                    }
-                ]
-            }
-        },
         'csp-production': {
             files: {
                 'build/reliable-web-summit-2021/index.html': ['build/reliable-web-summit-2021/index.html']
