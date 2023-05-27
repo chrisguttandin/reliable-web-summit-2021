@@ -32,7 +32,11 @@ module.exports = (grunt) => {
             cmd: 'npx ng serve'
         },
         'prerender': {
-            cmd: 'npx ng run reliable-web-summit-2021:server:production && npx angular-prerender --preserve-index-html'
+            cmd: `npx ng run reliable-web-summit-2021:server:production && \
+                npx angular-prerender \
+                    --browser-target reliable-web-summit-2021:build \
+                    --preserve-index-html \
+                    --server-target reliable-web-summit-2021:server`
         },
         'preview': {
             cmd: 'npx ng serve --configuration production'
