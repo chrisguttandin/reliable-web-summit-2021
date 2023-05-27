@@ -1,6 +1,5 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "defaultProject": "reliable-web-summit-2021",
     "newProjectRoot": "projects",
     "projects": {
         "reliable-web-summit-2021": {
