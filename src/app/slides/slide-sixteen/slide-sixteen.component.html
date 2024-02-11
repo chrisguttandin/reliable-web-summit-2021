@@ -1,6 +1,7 @@
 <h2>Collect metrics</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces
-    ><!-- htmlmin:ignore -->import {{ '{' }} metrics &#125; from 'subscribable-things'; metrics({{ '{' }} buffered: true, type: 'longtask'
-    &#125;)((entries) =&gt; {{ '{' }} // send the entries to your server &#125;);<!-- htmlmin:ignore --></rws-prism
->
+<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->import {{ '{' }} metrics &#125; from 'subscribable-things';
+
+metrics({{ '{' }} buffered: true, type: 'longtask' &#125;)((entries) =&gt; {{ '{' }}
+    // send the entries to your server
+&#125;);<!-- htmlmin:ignore --></rws-prism>
 <p>doesn't work in Safari</p>
