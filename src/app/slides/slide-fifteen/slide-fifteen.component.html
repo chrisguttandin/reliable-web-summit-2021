@@ -1,8 +1,7 @@
 <h2>Collect metrics</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const observer = new PerformanceObserver((entries) =&gt; {{ '{' }}
-    // send the entries to your server
-});
-
-observer.observe({{ '{' }} buffered: true, type: 'longtask' });
-<!-- htmlmin:ignore --></rws-prism>
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore -->const observer = new PerformanceObserver((entries) =&gt; {{ '{' }} // send the entries to your server &#125;);
+    observer.observe({{ '{' }} buffered: true, type: 'longtask' &#125;);
+    <!-- htmlmin:ignore --></rws-prism
+>
 <p>doesn't work in Safari</p>
