@@ -1,9 +1,13 @@
 <h2>Monitor memory usage</h2>
-<rws-prism language="http" ngPreserveWhitespaces><!-- htmlmin:ignore -->'Cross-Origin-Embedder-Policy': 'require-corp'
-'Cross-Origin-Opener-Policy': 'same-origin'<!-- htmlmin:ignore --></rws-prism>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->performance
+<rws-prism language="http" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->'Cross-Origin-Embedder-Policy': 'require-corp'
+'Cross-Origin-Opener-Policy': 'same-origin'<!-- htmlmin:ignore --></rws-prism
+>
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->performance
     .measureUserAgentSpecificMemory()
-    .then(({{ '{' }} bytes &#125;) =&gt; {{ '{' }}
+    .then((&lbrace; bytes &rbrace;) =&gt; &lbrace;
         // send the bytes to your server
-    &#125;);<!-- htmlmin:ignore --></rws-prism>
+    &rbrace;);<!-- htmlmin:ignore --></rws-prism
+>
 <p>only works in Chromium browsers</p>

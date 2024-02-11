@@ -1,11 +1,13 @@
 <h2>Track rejections</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const unhandledRejections = new WeakMap();
-window.addEventListener('unhandledrejection', (event) =&gt; {{ '{' }}
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->const unhandledRejections = new WeakMap();
+window.addEventListener('unhandledrejection', (event) =&gt; &lbrace;
     unhandledRejections.set(
         event.promise,
-        setTimeout(() =&gt; {{ '{' }} /* report event.reason */ &#125;, 100)
+        setTimeout(() =&gt; &lbrace; /* report event.reason */ &rbrace;, 100)
     );
-&#125;);
-window.addEventListener('rejectionhandled', (event) =&gt; {{ '{' }}
+&rbrace;);
+window.addEventListener('rejectionhandled', (event) =&gt; &lbrace;
     clearTimeout(unhandledRejections.get(event.promise));
-&#125;);<!-- htmlmin:ignore --></rws-prism>
+&rbrace;);<!-- htmlmin:ignore --></rws-prism
+>

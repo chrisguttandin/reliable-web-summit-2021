@@ -1,7 +1,9 @@
 <h2>Collect reports</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->import {{ '{' }} reports &#125; from 'subscribable-things';
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->import &lbrace; reports &rbrace; from 'subscribable-things';
 
-reports({{ '{' }} buffered: true &#125;)((reportList) =&gt; {{ '{' }}
+reports(&lbrace; buffered: true &rbrace;)((reportList) =&gt; &lbrace;
     // send the reportList to your server
-&#125;);<!-- htmlmin:ignore --></rws-prism>
+&rbrace;);<!-- htmlmin:ignore --></rws-prism
+>
 <p>only works in Chromium browsers</p>

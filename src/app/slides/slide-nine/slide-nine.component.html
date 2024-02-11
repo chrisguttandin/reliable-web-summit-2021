@@ -1,8 +1,13 @@
 <h2>Track errors</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->window.addEventListener(
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->window.addEventListener(
     'error',
-    (event) =&gt; {{ '{' }}
+    (event) =&gt; &lbrace;
         // send the event to your server
-    &#125;
-);<!-- htmlmin:ignore --></rws-prism>
-<p>check interferece with <a href="https://angular.io/api/core/ErrorHandler">Angular's ErrorHandler</a> or <a href="https://rxjs.dev/api/index/interface/GlobalConfig">RxJS' GlobalConfig</a></p>
+    &rbrace;
+);<!-- htmlmin:ignore --></rws-prism
+>
+<p>
+    check interferece with <a href="https://angular.io/api/core/ErrorHandler">Angular's ErrorHandler</a> or
+    <a href="https://rxjs.dev/api/index/interface/GlobalConfig">RxJS' GlobalConfig</a>
+</p>

@@ -1,11 +1,13 @@
 <h2>Monitor frame rate</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->function trackFrames (lastFrame = null) {{ '{' }}
-    requestAnimationFrame((now) =&gt; {{ '{' }}
-        if (lastFrame !== null) {{ '{' }}
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->function trackFrames (lastFrame = null) &lbrace;
+    requestAnimationFrame((now) =&gt; &lbrace;
+        if (lastFrame !== null) &lbrace;
             const frameRate = 1000 / (now - lastFrame);
             // send the frameRate to your server
-        &#125;
+        &rbrace;
         trackFrames(now);
-    &#125;);
-&#125;<!-- htmlmin:ignore --></rws-prism>
+    &rbrace;);
+&rbrace;<!-- htmlmin:ignore --></rws-prism
+>
 <p>Don't keep this running all the time.</p>

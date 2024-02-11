@@ -1,7 +1,9 @@
 <h2>Keep the page alive</h2>
-<rws-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->import {{ '{' }} wakeLock &#125; from 'subscribable-things';
+<rws-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->import &lbrace; wakeLock &rbrace; from 'subscribable-things';
 
 const release = wakeLock('screen')();
 
-release();<!-- htmlmin:ignore --></rws-prism>
+release();<!-- htmlmin:ignore --></rws-prism
+>
 <p>only works in Chromium browsers</p>
