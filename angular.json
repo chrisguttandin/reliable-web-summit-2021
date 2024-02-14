@@ -60,7 +60,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "reliable-web-summit-2021:build"
+                        "buildTarget": "reliable-web-summit-2021:build"
                     }
                 },
                 "lint": {
@@ -80,10 +80,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "development": {
-                            "browserTarget": "reliable-web-summit-2021:build:development"
+                            "buildTarget": "reliable-web-summit-2021:build:development"
                         },
                         "production": {
-                            "browserTarget": "reliable-web-summit-2021:build:production"
+                            "buildTarget": "reliable-web-summit-2021:build:production"
                         }
                     },
                     "defaultConfiguration": "development",
