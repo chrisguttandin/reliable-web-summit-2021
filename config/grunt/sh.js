@@ -32,11 +32,9 @@ module.exports = (grunt) => {
             cmd: 'npx ng serve'
         },
         'prerender': {
-            cmd: `npx ng run reliable-web-summit-2021:server:production && \
-                npx angular-prerender \
-                    --browser-target reliable-web-summit-2021:build \
-                    --preserve-index-html \
-                    --server-target reliable-web-summit-2021:server`
+            cmd: `npx angular-prerender \
+                --preserve-index-html \
+                --target reliable-web-summit-2021:build`
         },
         'preview': {
             cmd: 'npx ng serve --configuration production'
@@ -50,8 +48,8 @@ module.exports = (grunt) => {
             cmd: 'npx ng test --watch false'
         },
         'verify': {
-            cmd: `npx bundle-buddy build/reliable-web-summit-2021/*.js.map && \
-                grep -r build/**/*.map -e '/environments/environment.ts'; test $? -eq 1`
+            cmd: `npx bundle-buddy build/reliable-web-summit-2021/browser/*.js.map && \
+                grep -r build/reliable-web-summit-2021/browser/*.js.map -e '/environments/environment.ts'; test $? -eq 1`
         }
     };
 };

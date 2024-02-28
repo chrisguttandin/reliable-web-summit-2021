@@ -2,8 +2,8 @@ module.exports = {
     default: {
         files: [
             {
-                cwd: 'build/reliable-web-summit-2021',
-                dest: 'build/reliable-web-summit-2021',
+                cwd: 'build/reliable-web-summit-2021/browser',
+                dest: 'build/reliable-web-summit-2021/browser',
                 expand: true,
                 src: ['**/*.html']
             }

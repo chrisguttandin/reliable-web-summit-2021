@@ -83,7 +83,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./build/reliable-web-summit-2021
+                  path: ./build/reliable-web-summit-2021/browser
 
             - id: deployment
               name: Deploy to GitHub Pages
