@@ -5,7 +5,7 @@ module.exports = {
                 cwd: 'build/reliable-web-summit-2021/browser',
                 dest: 'build/reliable-web-summit-2021/browser',
                 expand: true,
-                src: ['**/*.html']
+                src: ['**/404.html']
             }
         ],
         options: {

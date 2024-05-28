@@ -62,14 +62,14 @@ module.exports = (grunt) => {
         },
         'csp-production': {
             files: {
-                'build/reliable-web-summit-2021/browser/index.html': ['build/reliable-web-summit-2021/browser/index.html']
+                './': ['build/reliable-web-summit-2021/browser/**/index.html']
             },
             options: {
                 patterns: [
                     {
                         match: /<meta\shttp-equiv="content-security-policy"\s*\/?>/,
-                        replacement: () => {
-                            const html = fs.readFileSync('build/reliable-web-summit-2021/browser/index.html', 'utf8'); // eslint-disable-line node/no-sync
+                        replacement: (_1, _2, _3, filename) => {
+                            const html = fs.readFileSync(filename, 'utf8'); // eslint-disable-line node/no-sync
                             const regex = /<script[^>]*?>(?<script>.*?)<\/script>/gm;
                             const scriptHashes = [`'sha256-${computeHashOfString(ENABLE_STYLES_SCRIPT, 'sha256', 'base64')}'`];
 
@@ -141,14 +141,6 @@ module.exports = (grunt) => {
                             grunt.file.expand({ cwd: 'build/reliable-web-summit-2021', ext: extension }, `assets/${filename}.*`)[0]
                     },
                     {
-                        match: /\s*"\/reliable-web-summit-2021(?:\/scripts)?\/runtime(?:-es(?:2015|5))?.[\da-z]*\.js",/g,
-                        replacement: ''
-                    },
-                    {
-                        match: /\s*"\/reliable-web-summit-2021(?:\/scripts)?\/runtime(?:-es(?:2015|5))?.[\da-z]*\.js":\s*"[\da-z]+",/g,
-                        replacement: ''
-                    },
-                    {
                         // Replace the hash value inside of the hashTable for "/(index|start).html" because it was modified before.
                         match: /"\/reliable-web-summit-2021\/(?<filename>index|start)\.html":\s*"[\da-z]+"/g,
                         replacement: (_, filename) => {
@@ -181,25 +173,6 @@ module.exports = (grunt) => {
                             }
 
                             return pathOfHashedFile;
-                        }
-                    }
-                ]
-            }
-        },
-        'runtime': {
-            files: {
-                './': ['build/reliable-web-summit-2021/browser/index.html']
-            },
-            options: {
-                patterns: [
-                    {
-                        match: /<script\ssrc="(?<filename>runtime(?:-es(?:2015|5))?.[\da-z]*\.js)"(?<moduleAttribute>\s(?:nomodule|type="module"))?\scrossorigin="anonymous"\sintegrity="sha384-[\d+/A-Za-z]+=*"><\/script>/g,
-                        replacement: (_, filename, moduleAttribute) => {
-                            if (moduleAttribute === undefined) {
-                                return `<script>${fs.readFileSync(`build/reliable-web-summit-2021/browser/${filename}`)}</script>`; // eslint-disable-line node/no-sync
-                            }
-
-                            return `<script${moduleAttribute}>${fs.readFileSync(`build/reliable-web-summit-2021/browser/${filename}`)}</script>`; // eslint-disable-line node/no-sync
                         }
                     }
                 ]
