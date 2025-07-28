@@ -14,7 +14,6 @@ import * as Prism from 'prismjs';
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'rws-prism',
-    standalone: true,
     styleUrls: ['./prism.component.scss'],
     templateUrl: './prism.component.html'
 })
