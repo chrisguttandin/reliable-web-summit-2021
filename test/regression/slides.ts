@@ -29,6 +29,7 @@ for (let slide = 1; slide < 26; slide += 1) {
 
                 await page.goto(path);
                 await page.evaluate(() => navigator.serviceWorker.ready);
+                await page.goto(path);
                 await context.setOffline(true);
             });
 
